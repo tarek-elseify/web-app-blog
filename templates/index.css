@@ -19,14 +19,20 @@
     --verde: #6CBF84;
     --limestone: #DFE2D2;
     --rosa: #F2AD9f;
+    --top-gradient: #C31432;
+    --bottom-gradient: #240b36;
 }
 
 
 html, body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    background: var(--moss);
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100%;
+    background: linear-gradient(to bottom, #e6e9f0 0%, #eef1f5 100%) fixed;
 }
 
 /** remove underline from all links under header **/
@@ -39,29 +45,37 @@ header a {
 /**                            **/
 header {
     width: 100%;
-    background: var(--grapefruit);
+    background-color: transparent;
+    position: fixed;
+    top: 0;
 }
 
 /** title at the left of navbar **/
 /**                             **/
 .nav-title {
-    color: var(--limestone);
+    font-style: bold;
     margin-left: 20px;
     font-size: 30px;
 }
 
+header a {
+    color: black;
+}
+
+header a:hover {
+    color: var(--grapefruit);
+}
 
 /** links at the right of the navbar **/
 /**                                  **/
 .nav-links a {
-    color: var(--limestone);
     list-style: none;
     margin-right: 20px;
     font-size: 20px;
 }
-
-header a:hover {
-    color: white;
+p {
+    margin-top: 80px;
+    padding: 40px;
 }
 .nav-item {
     display: inline-block;
