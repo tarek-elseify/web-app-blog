@@ -28,6 +28,7 @@ p {
 
 h1 {   
     font-size: 2rem;
+    margin-bottom: 0rem;
 }
 
 /** define content font size at different pixel values **/
@@ -38,7 +39,7 @@ h1 {
     :root {font-size: 20px !important;}
     .column-3, .column-6{flex-wrap: wrap !important;}
     .column-3 {width: 75% !important;}
-    .row {
+    .row, .main-row, .blog-row {
 	width: 80% !important;
 	height: auto !important;
 	flex-direction: column !important;
@@ -85,6 +86,7 @@ html, body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
     background: var(--bggrey);
+    overflow-y: visible;
 }
 
 /** remove underline from all links under header **/
@@ -102,6 +104,7 @@ header {
     background: white;
     position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 /** all links under header are white **/
@@ -139,8 +142,8 @@ header a:hover, .active {
 /**                                                    **/
 .nav-item {
     display: inline-block;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /** set the nav as a flex container **/
@@ -154,6 +157,30 @@ header a:hover, .active {
     font-family: 'Lato', sans-serif;
 }
 
+/** define the dropdown menu **/
+/**                          **/
+#dropdown {
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    flex-direction: column;
+    height: 80px;
+    background: white;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--greyborder);
+}
+
+/** make dropdown accessible on hover **/
+/**                                   **/
+.profile:hover + #dropdown {
+    visibility: visible;
+}
+#dropdown:hover {
+    visibility: visible;
+}
+
 /** define the footer customizations **/
 /**                                  **/
 #footer {
@@ -161,9 +188,13 @@ header a:hover, .active {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: auto;
-    width: 100vw !important;
+    align-content: center;
+    background: white;
+    width: 100vw;
+    border-top: 1px solid var(--greyborder);
+    height: 2.5rem;
 }
+
 #footer p{
     font-family: 'Lato', sans-serif;
 }
@@ -185,7 +216,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
+    z-index: 0;
+    height: 100%;
+    padding-bottom: 2.5rem;
 }
 
 /** define a row **/
@@ -198,8 +232,35 @@ body {
     background: white;
     border: 1px solid var(--greyborder);
     border-radius: 5px;
-    height: 20rem;
     margin-top: 40px;
+    height: 20rem;
+}
+
+/** define the main page row **/
+/**                          **/
+.main-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70rem;
+    height: 35rem;
+    background: white;
+    border: 1px solid var(--greyborder);
+    margin-top: 70px;    
+}
+
+/** define a blog row **/
+/**                   **/
+.blog-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 70rem;
+    height: 13rem;
+    background: white;
+    border: 1px solid var(--greyborder);
+    margin-top: 40px;
+    padding: 40px;
 }
 
 /** all images in a row are 15x15 rem **/
@@ -220,6 +281,7 @@ body {
     width: 25%;
     height: 100%;
     justify-content: center;
+    align-items: center;
     flex-shrink: 0;
 }
 .column-6 {
@@ -239,8 +301,10 @@ body {
 span {
     width: 7.5rem;
     height: auto;
-
 }
+
+/** customize the read more button **/
+/**                                **/
 .read-more {
     padding-top: .5rem;
     padding-bottom: .5rem;
@@ -267,4 +331,16 @@ span {
     color: var(--lpink);
 }
 
+/** wrapper around all content **/
+/**                            **/
+#wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.main-image {
+    width: 80%;
+}
